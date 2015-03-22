@@ -18,13 +18,49 @@
     <![endif]-->
   </head>
   <body>
-    <h1>IoT HTTPS Relay</h1>
-    <p>
-        This App Engine app acts as a relay for IoT devices that do not support HTTPS.
-    </p>
-    <p>
-        Please be sure to understand the security issues of using this relay app and use at your own risk.
-    </p>
+    <div class="container">
+        <h1>IoT HTTPS Relay</h1>
+        <p>
+            An API that acts as a relay for IoT devices that do not support HTTPS i.e. you can use HTTPS APIs using HTTP
+        </p>
+        <div class="alert alert-warning" role="alert">
+            <strong>Warning!</strong> Please be sure to understand the security issues of using this relay app and use at your own risk.
+        </div>
+
+        <p><a href="https://github.com/AllAboutEE/iot-https-relay">Fork me on GitHub</a></p>
+        
+        <h2>Supported APIs:</h2>
+        <ul class="list-group">
+          <li class="list-group-item">Twilio (SMS only at this time)</li>
+        </ul>
+        <p>
+            Submit API requests as issues with an "enhancement" label to  
+            <a href="https://github.com/AllAboutEE/iot-https-relay">GitHub IoT HTTPS Relay</a>
+        </p>
+
+        <h2>Twilio SMS(Text Messaging)</h2>
+        
+        <p>
+        To Use the Twilio SMS relay, simply send an HTTP POST request like the following.
+        <br/> Where the token and sid are provided to you by Twilio. The "From" number must be your Twilio provided number.
+        The "To" number can be any number, but it can only be your verified number if you are using Twilio's free service.
+        </p>
+        <pre>
+            <code>
+POST /twilio/Messages.json HTTP/1.1
+Host: iot-https-relay.appspot.com
+Connection: close
+Content-Type: application/x-www-form-urlencoded
+Content-Length: xxx
+
+token=xxxxxx&From=15558689998&To=19998675584&Body=myURLEncodedMessage&sid=xxxxxx
+
+            </code>
+        </pre>
+
+        <h3><span class="label label-default">Example</span> Twilio SMS (Text Messaging) With ESP8266 and NodeMcu</h3>
+        <script src="https://gist.github.com/AllAboutEE/6fe3ac554caaa2e3b450.js"></script>
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
