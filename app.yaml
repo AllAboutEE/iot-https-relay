@@ -9,5 +9,15 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: .*
+- url: /
   script: index.html
+
+- url: /twilio/Messages.*
+  script: /twilio/Messages.php
+
+- url: /bootstrap-3.3.4-dist
+  static_dir: bootstrap-3.3.4-dist
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
