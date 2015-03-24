@@ -10,13 +10,13 @@ $token = $_POST['token'];
 
 $client = new Services_Twilio($sid,$token);
 
-$message = $client->account->messages->sendMessage(
-        $from,
-        $to,
-        $body
-    );
+$call = $client->account->calls->create(
+    $from, 
+    $to, 
+    'http://twimlets.com/echo?Twiml=%3CResponse%3E%3CSay%3E'.urlencode($body).'%3C%2FSay%3E%3C%2FResponse%3E'
 
-print $message->status;
+);
 
 
+print $call->status;
 

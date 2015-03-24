@@ -15,6 +15,12 @@ handlers:
 - url: /twilio/Messages.*
   script: /twilio/Messages.php
 
+- url: /twilio/Calls.*
+  script: /twilio/Calls.php
+
+- url: /twilio.html
+  script: twilio.html
+
 - url: /bootstrap-3.3.4-dist
   static_dir: bootstrap-3.3.4-dist
 
